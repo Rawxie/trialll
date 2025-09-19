@@ -1,73 +1,172 @@
-# Welcome to your Lovable project
+# Productica - AI-Powered Business Analysis Platform
 
-## Project info
+A modern React + TypeScript application for business idea validation, market research, and product-market fit analysis with Supabase authentication and credit system.
 
-**URL**: https://lovable.dev/projects/c60f177a-477f-4f5c-8f80-c13aa0a2f089
+## 🚀 Live Demo
 
-## How can I edit this code?
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Rawxie/trialll)
 
-There are several ways of editing your application.
+## ✨ Features
 
-**Use Lovable**
+- **Google OAuth Authentication** with Supabase
+- **Credit System** - 5 free credits for new users
+- **AI-Powered Analysis Modules**:
+  - Idea Validation
+  - Market Research
+  - Product-Market Fit (PMF)
+  - All-in-One Analysis
+- **Real-time Credit Tracking** and transaction history
+- **Modern UI** with shadcn/ui components
+- **Responsive Design** with dark/light theme support
+- **Demo Mode** for non-authenticated users
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c60f177a-477f-4f5c-8f80-c13aa0a2f089) and start prompting.
+## 🛠️ Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend**: React 18 + TypeScript + Vite
+- **UI Components**: shadcn/ui + Radix UI
+- **Styling**: Tailwind CSS
+- **Authentication**: Supabase Auth
+- **Database**: Supabase PostgreSQL
+- **State Management**: React Context + Hooks
+- **Routing**: React Router v6
+- **Icons**: Lucide React
 
-**Use your preferred IDE**
+## 🚀 Quick Deploy to Vercel
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Option 1: One-Click Deploy
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Rawxie/trialll)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Option 2: Manual Deploy
 
-Follow these steps:
+1. **Fork this repository**
+2. **Connect to Vercel**:
+   - Go to [vercel.com](https://vercel.com)
+   - Import your forked repository
+   - Vercel will auto-detect Vite configuration
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+3. **Set Environment Variables**:
+   ```
+   VITE_SUPABASE_URL=your_supabase_project_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+4. **Deploy** - Vercel will automatically build and deploy!
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🔧 Local Development
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+- Supabase account
+
+### Setup
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Rawxie/trialll.git
+   cd trialll
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**:
+   ```bash
+   cp .env.template .env
+   # Edit .env with your Supabase credentials
+   ```
+
+4. **Set up Supabase** (see [SUPABASE_SETUP.md](./SUPABASE_SETUP.md))
+
+5. **Start development server**:
+   ```bash
+   npm run dev
+   ```
+
+6. **Open** http://localhost:8080
+
+## 📁 Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── ui/             # shadcn/ui components
+│   └── ...             # Feature components
+├── contexts/           # React contexts
+├── hooks/              # Custom hooks
+├── lib/                # Utilities and configs
+├── pages/              # Page components
+└── assets/             # Static assets
 ```
 
-**Edit a file directly in GitHub**
+## 🔐 Environment Variables
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Create a `.env` file in the root directory:
 
-**Use GitHub Codespaces**
+```env
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🗄️ Database Setup
 
-## What technologies are used for this project?
+1. Create a Supabase project
+2. Run the SQL from `supabase-schema.sql` in your Supabase SQL editor
+3. Configure Google OAuth in Supabase Auth settings
 
-This project is built with:
+See [SUPABASE_SETUP.md](./SUPABASE_SETUP.md) for detailed instructions.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🎨 Customization
 
-## How can I deploy this project?
+### Theming
+- Modify `src/index.css` for global styles
+- Update `tailwind.config.ts` for design system
+- Customize components in `src/components/ui/`
 
-Simply open [Lovable](https://lovable.dev/projects/c60f177a-477f-4f5c-8f80-c13aa0a2f089) and click on Share -> Publish.
+### Adding New Modules
+1. Create component in `src/components/`
+2. Add route in `src/App.tsx`
+3. Update navigation in `src/components/AppSidebar.tsx`
 
-## Can I connect a custom domain to my Lovable project?
+## 📱 Deployment
 
-Yes, you can!
+### Vercel (Recommended)
+- Automatic deployments from GitHub
+- Built-in environment variable management
+- Global CDN and edge functions
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Other Platforms
+- **Netlify**: Works with Vite out of the box
+- **Railway**: Supports Node.js applications
+- **Render**: Static site deployment
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+- 📖 [Documentation](./SUPABASE_SETUP.md)
+- 🐛 [Report Issues](https://github.com/Rawxie/trialll/issues)
+- 💬 [Discussions](https://github.com/Rawxie/trialll/discussions)
+
+## 🙏 Acknowledgments
+
+- [shadcn/ui](https://ui.shadcn.com/) for beautiful components
+- [Supabase](https://supabase.com/) for backend services
+- [Vite](https://vitejs.dev/) for fast development
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+
+---
+
+**Made with ❤️ for entrepreneurs and innovators**
