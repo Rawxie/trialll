@@ -3,6 +3,8 @@ import { User as SupabaseUser, Session } from '@supabase/supabase-js'
 import { supabase, User, CreditTransaction } from '@/lib/supabase'
 import { useToast } from '@/hooks/use-toast'
 
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://placeholder.supabase.co'
+
 interface AuthContextType {
   user: User | null
   session: Session | null
@@ -26,6 +28,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   // Initialize user data from Supabase
   const initializeUser = async (supabaseUser: SupabaseUser) => {
     try {
+      // Skip Supabase operations if using placeholder credentials
+      if (supabaseUrl.includes('placeholder')) {
+        console.warn('Supabase not configured - using demo mode')
+        return
+      }
+
       // Check if user exists in our users table
       const { data: existingUser, error: fetchError } = await supabase
         .from('users')
@@ -83,6 +91,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   // Sign in with Google
   const signInWithGoogle = async () => {
     try {
+      if (supabaseUrl.includes('placeholder')) {
+        toast({
+          title: "Supabase Not Configured",
+          description: "Please set up Supabase credentials to enable authentication.",
+          variant: "destructive",
+        })
+        return
+      }
+
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
